@@ -44,20 +44,10 @@ p {
   width: 75px;
   height: 75px;
   border-radius: 50px;
-}
-
-.imgWrapper {
   padding: 10px;
 }
 
-.textCardWrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.textCardWrapper > h4 {
+.usrCardContainer > h4 {
   padding-bottom: 10px;
 }
 

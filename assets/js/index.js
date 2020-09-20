@@ -1,9 +1,9 @@
 "use strict";
 
-const input = document.getElementsByTagName("input");
-const btn = document.getElementById("btn");
+// const input = document.getElementsByTagName("input");
+// const btn = document.getElementById("btn");
 
-let num = 1;
+// let num = 1;
 
 // btn.addEventListener("click", (event) => {
 
@@ -40,8 +40,6 @@ let num = 1;
 //     }
 // )
 
-
-
 /*
  function logNumbersInterval() {
     if(num < 26){
@@ -58,22 +56,97 @@ let num = 1;
 // -----------------------------------------------------------------------------------
 // Lesson 1(20.09.20)
 
-fetch('http://192.168.1.148:3000')
-  .then((res)=>{
-      res = res.json();
+const userPositionArray = [
+    'Sales manager',
+    'Cashier',
+    'Programmer',
+    'Administrator',
+    'Team leader',
+    'Team leader',
+    'Broker',
+    'Financier',
+    'Supervisor',
+    'Industrial climber' 
+];
 
-      console.dir(res);
-      
-      return res;
-    //   let arrUsersData = users.stringify
-    //   return JSON.parse(users);
-    })
-  .then((arr)=>{
-      console.dir(arr);
-      const usersCards = arr.map((item,i,arr)=>{
-          console.log(item.id)
-      })
+
+
+fetch("http://192.168.1.148:3000")
+  .then((res) => {
+    res = res.json();
+    return res;
   })
-  .catch();
+  .then((arr) => {
+    console.dir(arr);
+    const usersCards = arr.map((item, i, arr) => {
+      console.log(item.profilePicture);
 
+      const image = createImgForUserCard(item.profilePicture);
+
+    });
+  })
+  .catch(() => {
+    // console.dir(err);
+  });
+
+
+function createImgForUserCard(urlImg){
+
+const userImg = document.createElement('img');
+
+userImg.setAttribute('src', urlImg);
+userImg.onerror(()=>{
+    
+});
+
+userImg.classList.add('usrImg')
+
+
+return userImg
+}
+
+function createUsername({firstName, lastName}){
+if(typeof(firstName) !== 'string' || typeof(lastName) !== 'string'){
+    throw new TypeError('First and last name must be string');
+}
+
+const userName = document.createElement('h4');
+
+userName.textContent = `${firstName} ${lastName}`;
+
+userName.classList.add('userCardBtn');
+
+return userName;
+}
+
+function createUserPosition(position){
+const userPosition = document.createElement('p');
+
+const max = position.length;
+const randNum = Math.floor(Math.random() * Math.floor(max));
+
+userPosition.textContent = position[randNum];
+
+return userPosition;
+}
+
+function createButtonConnection(){
+
+const userCardButton = document.createElement('button');
+
+userCardButton.classList.add('userCardBtn');
+userCardButton.textContent = 'Connect';
+
+return userCardButton;
+}
+
+function createUserCard(cardComponents){
+    const {userImg, userName, userPosition, userCardButton} = cardComponents;
+
+    const card = document.createElement('div');
+
+    card.append(userImg, userName, userPosition,userCardButton)
+
+return card;
+}
 
