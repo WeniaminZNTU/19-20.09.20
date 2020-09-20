@@ -1,0 +1,81 @@
+body {
+  display: flex;
+  background-color: darkgray;
+
+  justify-content: center;
+  align-items: center;
+
+  width: 100vw;
+  height: 100vh;
+}
+
+h4 {
+  font-size: 20px;
+  font-weight: 600;
+  /* сделать шрифт жирным */
+}
+
+p {
+  font-size: 16px;
+}
+
+.usrCardContainer {
+  display: flex;
+  flex-basis: content;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+
+  /* padding: 50px; */
+  padding-top: 22px;
+  padding-left: 53px;
+  padding-right: 53px;
+  padding-bottom: 30px;
+
+  border-radius: 4.5px;
+
+  background-color: white;
+}
+
+.usrImg {
+  width: 75px;
+  height: 75px;
+  border-radius: 50px;
+}
+
+.imgWrapper {
+  padding: 10px;
+}
+
+.textCardWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.textCardWrapper > h4 {
+  padding-bottom: 10px;
+}
+
+.userCardBtn {
+  display: inline-block;
+  color: aliceblue;
+  text-decoration: none;
+  background: royalblue;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  outline: none;
+  border: 0px;
+  border-radius: 2.5px;
+
+  padding: 7px 35px;
+  margin-top: 30px;
+
+  -webkit-box-shadow: 0px 6px 3px 0px rgba(0,0,0,0.14);
+-moz-box-shadow: 0px 6px 3px 0px rgba(0,0,0,0.14);
+box-shadow: 0px 6px 3px 0px rgba(0,0,0,0.14);
+}
